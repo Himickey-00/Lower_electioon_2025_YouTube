@@ -35,6 +35,7 @@ if "view count" in df_combined.columns:
     print(f"[DEBUG] 結合後 view count の Python 型分布:\n{types.to_string()}")
     cleaned = df_combined["view count"].astype(str).str.replace(r"[\,\s]", "", regex=True)
     non_digit_mask = ~cleaned.str.match(r"^\d+$")
+    
     if non_digit_mask.any():
         print(f"[WARN] 結合後 view count に数字以外の形式が {non_digit_mask.sum()} 件あります。例:")
         print(df_combined.loc[non_digit_mask, ["id", "view count"]].head(10).to_string(index=False))
