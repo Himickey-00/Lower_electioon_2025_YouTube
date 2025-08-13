@@ -8,8 +8,8 @@ except ImportError:
         print(df)
 
 # ファイルパスを指定
-file1 = "Videos_InfluentialOrganizations_20250711_30.csv"
-file2 = "sangiin_related_videos_Videos_InfluentialOrganizations_20250711_30.csv"
+file1 = "combined_20250719_690.csv"
+file2 = "refetched_20250719.csv"
 
 # CSVファイルの読み込み
 df1 = pd.read_csv(file1)
@@ -31,5 +31,5 @@ print(f"df2にのみ存在するid数: {len(only_in_df2)}")
 # df1にのみ存在するレコード
 df1_only = df1[df1['id'].isin(only_in_df1)]
 print("df1にのみ存在するレコード:")
-df1_only.to_csv("df1_only.csv", index=False)
+df1_only.to_csv("deleted_videos_20250719.csv", index=False)
 
